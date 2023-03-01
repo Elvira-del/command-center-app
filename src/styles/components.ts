@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: 0 auto;
   padding: 0 50px;
-  max-width: ${({ theme }) => theme.width.container}px;
+  max-width: ${({ theme }) => theme.sizes.container.width}px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 0 30px;
+  }
 `;
