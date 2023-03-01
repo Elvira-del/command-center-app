@@ -19,7 +19,10 @@ export default createGlobalStyle`
     list-style: none;
   }
 
-  input {
+  input,
+  button {
+    border: none;
+    background-color: transparent;
     outline: none;
     cursor: pointer;
   }
