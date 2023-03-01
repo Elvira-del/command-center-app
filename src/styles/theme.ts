@@ -10,7 +10,8 @@ export const theme: DefaultTheme = {
     font: "#070d0c",
   },
 
-  width: {
-    container: 1440,
+  sizes: {
+    container: { width: 1440 },
+    header: { height: 70 },
   },
 };

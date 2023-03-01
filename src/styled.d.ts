@@ -11,8 +11,9 @@ declare module "styled-components" {
       font: string;
     };
 
-    width: {
-      container: number;
+    sizes: {
+      container: { width: number };
+      header: { height: number };
     };
   }
 }
