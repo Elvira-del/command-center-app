@@ -20,6 +20,7 @@ export default createGlobalStyle`
   }
 
   input,
+  select,
   button {
     border: none;
     background-color: transparent;
