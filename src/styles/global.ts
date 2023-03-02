@@ -28,6 +28,10 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  fieldset {
+    border: none;
+  }
+
   a {
     text-decoration: none;
   }
