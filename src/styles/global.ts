@@ -28,6 +28,10 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  label {
+    cursor: pointer;
+  }
+
   fieldset {
     border: none;
   }
