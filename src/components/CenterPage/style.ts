@@ -10,3 +10,9 @@ export const HeaderWrapper = styled.div`
   min-height: ${({ theme }) => theme.sizes.header.height}px;
   height: 100%;
 `;
+
+export const Main = styled.main``;
+
+export const Section = styled.section`
+  margin-bottom: 35px;
+`;
