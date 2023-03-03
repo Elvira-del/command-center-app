@@ -18,9 +18,10 @@ const InitialData = {
 
 interface IssueFormProps {
   onAddIssue: (issue: InitialDataProps) => void;
+  onCloseForm: () => void;
 }
 
-const IssueForm = ({ onAddIssue }: IssueFormProps) => {
+const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
   const [issue, setIssue] = useState<InitialDataProps>(InitialData);
 
   const handleChangeIssue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +32,7 @@ const IssueForm = ({ onAddIssue }: IssueFormProps) => {
     e.preventDefault();
     onAddIssue(issue);
     setIssue(InitialData);
+    onCloseForm();
   };
 
   return (
@@ -93,7 +95,7 @@ const IssueForm = ({ onAddIssue }: IssueFormProps) => {
           <ButtonUI type="submit" styleBtn="primary">
             Submit
           </ButtonUI>
-          <ButtonUI type="button" styleBtn="secondary">
+          <ButtonUI type="button" onClick={onCloseForm} styleBtn="secondary">
             Cancel
           </ButtonUI>
         </S.ButtonFormWrapper>
