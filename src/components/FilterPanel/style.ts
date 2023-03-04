@@ -29,7 +29,7 @@ export const FilterDateLabel = styled(FilterLabel)`
 
 export const FilterFieldset = styled.fieldset`
   display: flex;
-  gap: 8px;
+  gap: ${({ theme }) => theme.gap}px;
 
   @media (max-width: 574px) {
     width: 100%;

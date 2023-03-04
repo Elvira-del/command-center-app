@@ -2,6 +2,7 @@ import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   borderRadius: "10px",
+  gap: 10,
 
   colors: {
     primary: "#5d8c56",

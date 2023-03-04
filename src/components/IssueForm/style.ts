@@ -8,7 +8,7 @@ export const IssueFormTitle = styled.h3`
 export const IssueForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: ${({ theme }) => theme.gap}px;
 `;
 
 export const IssueLabel = styled.label`
@@ -26,5 +26,5 @@ export const IssueInput = styled(Input)`
 export const ButtonFormWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: ${({ theme }) => theme.gap}px;
 `;
