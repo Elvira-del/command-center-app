@@ -1,14 +1,22 @@
-import React from "react";
+import { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from "react";
 import * as S from "./style";
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
-  children: string | React.ReactNode;
-  styleBtn: string;
-}
+type ButtonProps = {
+  children: ReactNode;
+  className: string;
+  onClick?: MouseEventHandler;
+  radius?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({ children, styleBtn, ...other }: ButtonProps) => {
+const Button = ({
+  children,
+  className,
+  onClick,
+  radius,
+  ...rest
+}: ButtonProps) => {
   return (
-    <S.Button styleBtn={styleBtn} {...other}>
+    <S.Button className={className} onClick={onClick} radius={radius} {...rest}>
       {children}
     </S.Button>
   );

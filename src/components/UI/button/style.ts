@@ -1,15 +1,16 @@
 import styled, { css } from "styled-components";
 
-interface ButtonProps {
-  styleBtn: string;
-}
+type ButtonProps = {
+  className: string;
+  radius?: string;
+};
 
 export const Button = styled.button<ButtonProps>`
-  padding: 10px;
-  min-width: 100px;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  ${({ theme, styleBtn }) => {
-    switch (styleBtn) {
+  padding: 10px 15px;
+  border-radius: ${({ theme, radius }) =>
+    radius ? `${radius}%` : theme.borderRadius};
+  ${({ theme, className }) => {
+    switch (className) {
       case "primary":
         return css`
           background-color: ${theme.colors.primary};
