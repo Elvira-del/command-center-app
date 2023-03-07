@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import useLocalStorage from "hooks/useLocalStorage";
 import * as S from "./style";
 import { Container } from "styles/components";
@@ -17,10 +17,22 @@ export type Issue = {
 const CenterPage = () => {
   const [issues, setIssues] = useLocalStorage<Issue[]>("localIssues", []);
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("");
 
   const handleAddIssue = (issue: Issue) => {
     setIssues([...issues, issue]);
   };
+
+  const handleStatusFilter = (status: string) => {
+    setSelectedStatus(status);
+  };
+
+  const filteredStatusIssues = useMemo(() => {
+    if (selectedStatus) {
+      return issues.filter((issue) => issue.status === selectedStatus);
+    }
+    return issues;
+  }, [issues, selectedStatus]);
 
   return (
     <>
@@ -38,7 +50,10 @@ const CenterPage = () => {
       <S.Main>
         <S.Section>
           <Container>
-            <FilterPanel />
+            <FilterPanel
+              status={selectedStatus}
+              onSelectStatus={handleStatusFilter}
+            />
 
             <S.TasksWrapper>
               <div>
@@ -62,7 +77,7 @@ const CenterPage = () => {
                   onCloseForm={() => setIsOpen(false)}
                 />
               ) : (
-                <TasksList tasks={issues} />
+                <TasksList tasks={filteredStatusIssues} />
               )}
             </S.TasksWrapper>
           </Container>

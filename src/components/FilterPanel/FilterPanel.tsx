@@ -1,15 +1,25 @@
-import React from "react";
+import { ChangeEvent } from "react";
 import Input from "components/UI/input/Input";
 import Select from "components/UI/select/Select";
+import { IssueStatusDict } from "data";
 import * as S from "./style";
 
-const FilterPanel = () => {
+type FilterPanelProps = {
+  status: string;
+  onSelectStatus: (status: string) => void;
+};
+
+const FilterPanel = ({ status, onSelectStatus }: FilterPanelProps) => {
+  const handleChangeStatus = (e: ChangeEvent<HTMLSelectElement>) => {
+    onSelectStatus(e.target.value);
+  };
+
   return (
     <S.FilterPanelWrapper>
       <S.FilterForm>
         <S.FilterLabel htmlFor="typeFilter">
           Issue type
-          <Input type="text" placeholder="Enter text..." id="typeFilter" />
+          <Input type="text" id="typeFilter" placeholder="Enter text..." />
         </S.FilterLabel>
 
         <S.FilterFieldset>
@@ -28,13 +38,17 @@ const FilterPanel = () => {
 
         <S.FilterLabel htmlFor="statusFilter">
           Status
-          <Select id="statusFilter">
-            <option selected disabled>
-              -- Select status --
-            </option>
-            <option value="actual">Actual</option>
-            <option value="handled">Handled</option>
-            <option value="archived">Archived</option>
+          <Select
+            id="statusFilter"
+            value={status}
+            onChange={handleChangeStatus}
+          >
+            <option value="">-- Select status --</option>
+            {IssueStatusDict.map((status) => (
+              <option key={status.id} value={status.value}>
+                {status.value}
+              </option>
+            ))}
           </Select>
         </S.FilterLabel>
       </S.FilterForm>
