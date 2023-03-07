@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Input from "components/UI/input/Input";
+import Input from "components/atoms/input/Input";
 
 export const IssueFormTitle = styled.h3`
   margin-bottom: 15px;

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+import ButtonUI from "components/atoms/button/Button";
 import * as S from "./style";
-import ButtonUI from "components/UI/button/Button";
 
-interface InitialDataProps {
+type InitialDataProps = {
   location: string;
   title: string;
   startDate: string;
   status: string;
-}
+};
 
 const InitialData = {
   location: "",
@@ -24,11 +24,11 @@ interface IssueFormProps {
 const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
   const [issue, setIssue] = useState<InitialDataProps>(InitialData);
 
-  const handleChangeIssue = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeIssue = (e: ChangeEvent<HTMLInputElement>) => {
     setIssue({ ...issue, [e.target.name]: e.target.value });
   };
 
-  const handleSubmitIssue = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitIssue = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onAddIssue(issue);
     setIssue(InitialData);

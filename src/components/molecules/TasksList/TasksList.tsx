@@ -1,6 +1,5 @@
-import React from "react";
+import { Issue } from "components/pages/CenterPage/CenterPage";
 import * as S from "./style";
-import { Issue } from "components/CenterPage/CenterPage";
 
 interface TasksListProps {
   tasks: Issue[];
