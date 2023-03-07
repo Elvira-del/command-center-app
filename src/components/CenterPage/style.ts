@@ -16,3 +16,8 @@ export const Main = styled.main``;
 export const Section = styled.section`
   margin-bottom: 35px;
 `;
+
+export const TasksWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

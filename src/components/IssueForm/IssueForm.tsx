@@ -92,10 +92,10 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
         </S.IssueLabel>
 
         <S.ButtonFormWrapper>
-          <ButtonUI type="submit" styleBtn="primary">
+          <ButtonUI type="submit" className="primary">
             Submit
           </ButtonUI>
-          <ButtonUI type="button" onClick={onCloseForm} styleBtn="secondary">
+          <ButtonUI type="button" onClick={onCloseForm} className="secondary">
             Cancel
           </ButtonUI>
         </S.ButtonFormWrapper>
