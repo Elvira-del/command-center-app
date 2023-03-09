@@ -3,10 +3,9 @@ import useLocalStorage from "hooks/useLocalStorage";
 import { Container } from "styles/components";
 import ButtonUI from "components/atoms/button/Button";
 import FilterPanel from "components/molecules/FilterPanel/FilterPanel";
-import TasksList from "components/molecules/TasksList/TasksList";
 import IssueForm from "components/molecules/IssueForm/IssueForm";
 import * as S from "./style";
-import GroupPanel from "components/molecules/GroupPanel/GroupPanel";
+import MainPanel from "components/organisms/MainPanel/MainPanel";
 
 export type Issue = {
   location: string;
@@ -15,7 +14,7 @@ export type Issue = {
   status: string;
 };
 
-const MainPanel = () => {
+const CenterPage = () => {
   const [issues, setIssues] = useLocalStorage<Issue[]>("localIssues", []);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("");
@@ -57,15 +56,18 @@ const MainPanel = () => {
             />
 
             <S.TasksWrapper>
-              <GroupPanel onOpenForm={() => setIsOpen(true)} />
-
               {isOpen ? (
                 <IssueForm
                   onAddIssue={handleAddIssue}
                   onCloseForm={() => setIsOpen(false)}
                 />
               ) : (
-                <TasksList tasks={filteredStatusIssues} />
+                <>
+                  <MainPanel
+                    tasks={filteredStatusIssues}
+                    onOpenForm={() => setIsOpen(true)}
+                  />
+                </>
               )}
             </S.TasksWrapper>
           </Container>
@@ -75,4 +77,4 @@ const MainPanel = () => {
   );
 };
 
-export default MainPanel;
+export default CenterPage;
