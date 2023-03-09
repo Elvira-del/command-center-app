@@ -6,6 +6,7 @@ import FilterPanel from "components/molecules/FilterPanel/FilterPanel";
 import TasksList from "components/molecules/TasksList/TasksList";
 import IssueForm from "components/molecules/IssueForm/IssueForm";
 import * as S from "./style";
+import GroupPanel from "components/molecules/GroupPanel/GroupPanel";
 
 export type Issue = {
   location: string;
@@ -56,20 +57,7 @@ const CenterPage = () => {
             />
 
             <S.TasksWrapper>
-              <div>
-                <label htmlFor="groupTask">
-                  Group by location
-                  <input type="checkbox" id="groupTask" />
-                </label>
-                <ButtonUI
-                  type="button"
-                  className="primary"
-                  radius="50"
-                  onClick={() => setIsOpen(true)}
-                >
-                  +
-                </ButtonUI>
-              </div>
+              <GroupPanel onOpenForm={() => setIsOpen(true)} />
 
               {isOpen ? (
                 <IssueForm
