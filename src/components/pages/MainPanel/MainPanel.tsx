@@ -15,7 +15,7 @@ export type Issue = {
   status: string;
 };
 
-const CenterPage = () => {
+const MainPanel = () => {
   const [issues, setIssues] = useLocalStorage<Issue[]>("localIssues", []);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("");
@@ -75,4 +75,4 @@ const CenterPage = () => {
   );
 };
 
-export default CenterPage;
+export default MainPanel;

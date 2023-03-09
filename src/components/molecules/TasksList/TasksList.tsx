@@ -1,4 +1,4 @@
-import { Issue } from "components/pages/CenterPage/CenterPage";
+import { Issue } from "components/pages/MainPanel/MainPanel";
 import * as S from "./style";
 
 interface TasksListProps {
