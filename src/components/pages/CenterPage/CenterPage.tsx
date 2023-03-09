@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import useLocalStorage from "hooks/useLocalStorage";
-import { Container } from "styles/components";
+import { Container } from "components/templates/style";
 import ButtonUI from "components/atoms/button/Button";
 import FilterPanel from "components/molecules/FilterPanel/FilterPanel";
 import IssueForm from "components/molecules/IssueForm/IssueForm";
