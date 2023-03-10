@@ -1,9 +1,9 @@
 import { Issue } from "components/pages/CenterPage/CenterPage";
 import * as S from "./style";
 
-interface TasksListProps {
+type TasksListProps = {
   tasks: Issue[];
-}
+};
 
 const TasksList = ({ tasks }: TasksListProps) => {
   return (

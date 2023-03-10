@@ -1,13 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import ButtonUI from "components/atoms/button/Button";
+import { Issue } from "components/pages/CenterPage/CenterPage";
 import * as S from "./style";
-
-type InitialDataProps = {
-  location: string;
-  title: string;
-  startDate: string;
-  status: string;
-};
 
 const InitialData = {
   location: "",
@@ -16,13 +10,13 @@ const InitialData = {
   status: "",
 };
 
-interface IssueFormProps {
-  onAddIssue: (issue: InitialDataProps) => void;
+type IssueFormProps = {
+  onAddIssue: (issue: Issue) => void;
   onCloseForm: () => void;
-}
+};
 
 const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
-  const [issue, setIssue] = useState<InitialDataProps>(InitialData);
+  const [issue, setIssue] = useState<Issue>(InitialData);
 
   const handleChangeIssue = (e: ChangeEvent<HTMLInputElement>) => {
     setIssue({ ...issue, [e.target.name]: e.target.value });
