@@ -7,9 +7,13 @@ export const FilterPanelWrapper = styled.div`
 export const FilterForm = styled.form`
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: ${({ theme }) => theme.gap}px;
+  }
 `;
 
 export const FilterLabel = styled.label`
@@ -17,7 +21,7 @@ export const FilterLabel = styled.label`
   flex-direction: column;
   gap: 5px;
 
-  @media (max-width: 574px) {
+  @media (max-width: 510px) {
     width: 100%;
   }
 `;
@@ -30,10 +34,6 @@ export const FilterDateLabel = styled(FilterLabel)`
 export const FilterFieldset = styled.fieldset`
   display: flex;
   gap: ${({ theme }) => theme.gap}px;
-
-  @media (max-width: 574px) {
-    width: 100%;
-  }
 
   @media (max-width: 360px) {
     flex-direction: column;

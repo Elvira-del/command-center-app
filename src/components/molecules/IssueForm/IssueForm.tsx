@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import ButtonUI from "components/atoms/button/Button";
-import { Issue } from "components/pages/CenterPage/CenterPage";
+import ButtonUI from "components/atoms/button";
+import { Issue } from "data";
 import * as S from "./style";
 
 const InitialData = {

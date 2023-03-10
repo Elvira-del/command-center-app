@@ -1,17 +1,59 @@
-import GroupPanel from "components/molecules/GroupPanel/GroupPanel";
-import TasksList from "components/molecules/TasksList/TasksList";
-import { Issue } from "components/pages/CenterPage/CenterPage";
+import { useMemo, useState } from "react";
+import useLocalStorage from "hooks/useLocalStorage";
+import { Issue } from "data";
+import FilterPanel from "components/molecules/FilterPanel";
+import GroupPanel from "components/molecules/GroupPanel";
+import IssueForm from "components/molecules/IssueForm";
+import TasksList from "components/molecules/TasksList";
+import * as S from "./style";
 
-type TasksPanelProps = {
-  tasks: Issue[];
-  onOpenForm: () => void;
-};
+const MainPanel = () => {
+  const [issues, setIssues] = useLocalStorage<Issue[]>("localIssues", []);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("");
 
-const MainPanel = ({ tasks, onOpenForm }: TasksPanelProps) => {
+  const filteredStatusIssues = useMemo(() => {
+    if (selectedStatus) {
+      return issues.filter((issue) => issue.status === selectedStatus);
+    }
+    return issues;
+  }, [issues, selectedStatus]);
+
+  const handleAddIssue = (issue: Issue) => {
+    setIssues([...issues, issue]);
+  };
+
+  const handleStatusFilter = (status: string) => {
+    setSelectedStatus(status);
+  };
+
+  const handleOpenIssueForm = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
-      <GroupPanel onOpenForm={onOpenForm} />
-      <TasksList tasks={tasks} />
+      <FilterPanel
+        status={selectedStatus}
+        onSelectStatus={handleStatusFilter}
+      />
+
+      <S.TasksWrapper>
+        {isOpen ? (
+          <IssueForm
+            onAddIssue={handleAddIssue}
+            onCloseForm={handleOpenIssueForm}
+          />
+        ) : (
+          <>
+            <GroupPanel onOpenForm={handleOpenIssueForm} />
+            {filteredStatusIssues.length ? (
+              <TasksList tasks={filteredStatusIssues} />
+            ) : (
+              <h2>No issues found</h2>
+            )}
+          </>
+        )}
+      </S.TasksWrapper>
     </>
   );
 };

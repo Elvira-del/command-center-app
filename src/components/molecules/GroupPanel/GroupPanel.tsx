@@ -1,4 +1,4 @@
-import ButtonUI from "components/atoms/button/Button";
+import ButtonUI from "components/atoms/button";
 import * as S from "./style";
 
 type GroupPanelProps = {

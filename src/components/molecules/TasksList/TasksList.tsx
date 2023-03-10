@@ -1,4 +1,4 @@
-import { Issue } from "components/pages/CenterPage/CenterPage";
+import { Issue } from "data";
 import * as S from "./style";
 
 type TasksListProps = {

@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
-import Input from "components/atoms/input/Input";
-import Select from "components/atoms/select/Select";
+import Input from "components/atoms/input";
+import Select from "components/atoms/select";
 import { IssueStatusDict } from "data";
 import * as S from "./style";
 
