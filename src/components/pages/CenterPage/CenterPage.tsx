@@ -4,8 +4,8 @@ import { Container } from "components/templates/style";
 import ButtonUI from "components/atoms/button/Button";
 import FilterPanel from "components/molecules/FilterPanel/FilterPanel";
 import IssueForm from "components/molecules/IssueForm/IssueForm";
-import * as S from "./style";
 import MainPanel from "components/organisms/MainPanel/MainPanel";
+import * as S from "./style";
 
 export type Issue = {
   location: string;
@@ -19,6 +19,13 @@ const CenterPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("");
 
+  const filteredStatusIssues = useMemo(() => {
+    if (selectedStatus) {
+      return issues.filter((issue) => issue.status === selectedStatus);
+    }
+    return issues;
+  }, [issues, selectedStatus]);
+
   const handleAddIssue = (issue: Issue) => {
     setIssues([...issues, issue]);
   };
@@ -27,12 +34,9 @@ const CenterPage = () => {
     setSelectedStatus(status);
   };
 
-  const filteredStatusIssues = useMemo(() => {
-    if (selectedStatus) {
-      return issues.filter((issue) => issue.status === selectedStatus);
-    }
-    return issues;
-  }, [issues, selectedStatus]);
+  const handleOpenIssueForm = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -59,13 +63,13 @@ const CenterPage = () => {
               {isOpen ? (
                 <IssueForm
                   onAddIssue={handleAddIssue}
-                  onCloseForm={() => setIsOpen(false)}
+                  onCloseForm={handleOpenIssueForm}
                 />
               ) : (
                 <>
                   <MainPanel
                     tasks={filteredStatusIssues}
-                    onOpenForm={() => setIsOpen(true)}
+                    onOpenForm={handleOpenIssueForm}
                   />
                 </>
               )}
