@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FilterPanelWrapper = styled.div`
-  display: flex;
+  margin-bottom: 20px;
 `;
 
 export const FilterForm = styled.form`
@@ -35,7 +35,7 @@ export const FilterFieldset = styled.fieldset`
     width: 100%;
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 360px) {
     flex-direction: column;
   }
 `;

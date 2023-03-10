@@ -10,6 +10,7 @@ declare module "styled-components" {
       secondary: string;
 
       font: string;
+      bgElem: string;
     };
 
     sizes: {

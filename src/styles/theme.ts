@@ -9,6 +9,7 @@ export const theme: DefaultTheme = {
     secondary: "#2a403a",
 
     font: "#070d0c",
+    bgElem: "rgba(9, 9, 9, 0.1)",
   },
 
   sizes: {

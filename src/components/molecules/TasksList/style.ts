@@ -7,14 +7,13 @@ export const TasksList = styled.ul`
 `;
 
 export const TaskCard = styled.li`
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
   align-items: center;
   padding: 15px;
   border-radius: ${({ theme }) => theme.borderRadius};
-  background-color: rgba(9, 9, 9, 0.1);
+  background-color: ${({ theme }) => theme.colors.bgElem};
 
-  @media (max-width: 670px) {
+  @media (max-width: 360px) {
     flex-wrap: wrap;
     gap: ${({ theme }) => theme.gap}px;
   }
