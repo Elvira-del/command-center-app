@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/command-center-app/static/js/main.ca1382c5.js",
+    "index.html": "/command-center-app/index.html",
+    "main.ca1382c5.js.map": "/command-center-app/static/js/main.ca1382c5.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ca1382c5.js"
+  ]
+}
