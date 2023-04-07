@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Input from "components/atoms/input/Input";
+import Select from "components/atoms/select/Select";
 
 export const IssueFormTitle = styled.h3`
   margin-bottom: 15px;
@@ -20,6 +21,10 @@ export const IssueLabel = styled.label`
 `;
 
 export const IssueInput = styled(Input)`
+  width: 70%;
+`;
+
+export const IssueSelect = styled(Select)`
   width: 70%;
 `;
 

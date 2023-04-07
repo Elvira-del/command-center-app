@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import ButtonUI from "components/atoms/button";
-import { Issue } from "data";
+import { Issue, IssueStatusDict } from "data";
 import * as S from "./style";
 
 const InitialData = {
@@ -18,7 +18,9 @@ type IssueFormProps = {
 const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
   const [issue, setIssue] = useState<Issue>(InitialData);
 
-  const handleChangeIssue = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeIssue = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setIssue({ ...issue, [e.target.name]: e.target.value });
   };
 
@@ -47,15 +49,15 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
           />
         </S.IssueLabel>
 
-        <S.IssueLabel htmlFor="reporter">
-          Reporter:
+        <S.IssueLabel htmlFor="title">
+          Title:
           <S.IssueInput
             type="text"
             value={issue.title}
             onChange={handleChangeIssue}
             name="title"
-            id="reporter"
-            placeholder="Enter reporter"
+            id="title"
+            placeholder="Enter title"
             required
           />
         </S.IssueLabel>
@@ -72,17 +74,22 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
           />
         </S.IssueLabel>
 
-        <S.IssueLabel htmlFor="comment">
-          Comment:
-          <S.IssueInput
-            type="text"
+        <S.IssueLabel htmlFor="status">
+          Status:
+          <S.IssueSelect
+            id="status"
+            name="status"
             value={issue.status}
             onChange={handleChangeIssue}
-            name="status"
-            id="comment"
-            placeholder="Enter additional information"
             required
-          />
+          >
+            <option value="">Select status</option>
+            {IssueStatusDict.map((status) => (
+              <option key={status.id} value={status.value}>
+                {status.value}
+              </option>
+            ))}
+          </S.IssueSelect>
         </S.IssueLabel>
 
         <S.ButtonFormWrapper>

@@ -17,9 +17,9 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelProps) => {
   return (
     <S.FilterPanelWrapper>
       <S.FilterForm>
-        <S.FilterLabel htmlFor="typeFilter">
-          Issue type
-          <Input type="text" id="typeFilter" placeholder="Enter text..." />
+        <S.FilterLabel htmlFor="titleFilter">
+          Issue title
+          <Input type="text" id="titleFilter" placeholder="Enter text..." />
         </S.FilterLabel>
 
         <S.FilterFieldset>
