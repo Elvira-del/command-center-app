@@ -3,7 +3,6 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     borderRadius: string;
-    gap: number;
 
     colors: {
       primary: string;
@@ -16,6 +15,11 @@ declare module "styled-components" {
     sizes: {
       container: { width: number };
       header: { height: number };
+    };
+
+    gap: {
+      elem: number;
+      block: number;
     };
   }
 }

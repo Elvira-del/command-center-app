@@ -2,7 +2,6 @@ import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   borderRadius: "10px",
-  gap: 10,
 
   colors: {
     primary: "#5d8c56",
@@ -15,5 +14,10 @@ export const theme: DefaultTheme = {
   sizes: {
     container: { width: 1440 },
     header: { height: 70 },
+  },
+
+  gap: {
+    elem: 10,
+    block: 30,
   },
 };

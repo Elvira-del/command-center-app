@@ -12,7 +12,7 @@ export const FilterForm = styled.form`
   @media (max-width: 768px) {
     flex-wrap: wrap;
     justify-content: start;
-    gap: ${({ theme }) => theme.gap}px;
+    gap: ${({ theme }) => theme.gap.elem}px;
   }
 `;
 
@@ -33,7 +33,7 @@ export const FilterDateLabel = styled(FilterLabel)`
 
 export const FilterFieldset = styled.fieldset`
   display: flex;
-  gap: ${({ theme }) => theme.gap}px;
+  gap: ${({ theme }) => theme.gap.elem}px;
 
   @media (max-width: 360px) {
     flex-direction: column;

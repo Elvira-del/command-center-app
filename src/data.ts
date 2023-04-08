@@ -5,6 +5,13 @@ export type Issue = {
   status: string;
 };
 
+export const IssueListTitle = [
+  { id: "location", value: "Location" },
+  { id: "title", value: "Title" },
+  { id: "startDate", value: "Date" },
+  { id: "status", value: "Status" },
+];
+
 export const LocationDict = [
   { id: "earth", value: "Earth" },
   { id: "mars", value: "Mars" },

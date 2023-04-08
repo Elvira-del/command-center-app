@@ -1,7 +1,6 @@
-import { Container } from "components/templates/style";
+import * as S from "components/templates/style";
 import MainPanel from "components/organisms/MainPanel";
 import Header from "components/molecules/Header";
-import * as S from "./style";
 
 const CenterPage = () => {
   return (
@@ -10,9 +9,9 @@ const CenterPage = () => {
 
       <S.Main>
         <S.Section>
-          <Container>
+          <S.Container>
             <MainPanel />
-          </Container>
+          </S.Container>
         </S.Section>
       </S.Main>
     </>
