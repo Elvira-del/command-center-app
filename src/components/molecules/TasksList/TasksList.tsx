@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { Issue, IssueListTitle } from "data";
 import * as S from "./style";
 
@@ -13,8 +14,8 @@ const TasksList = ({ tasks }: TasksListProps) => {
       ))}
 
       <S.TasksList>
-        {tasks.map((task, idx) => (
-          <S.TaskCard key={idx}>
+        {tasks.map((task) => (
+          <S.TaskCard key={uuidv4()}>
             <S.TaskContent>{task.location}</S.TaskContent>
             <S.TaskContent>{task.title}</S.TaskContent>
             <S.TaskContent>{task.startDate}</S.TaskContent>
