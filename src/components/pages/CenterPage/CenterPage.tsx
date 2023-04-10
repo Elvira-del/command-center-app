@@ -1,6 +1,6 @@
-import * as S from "components/templates/style";
 import MainPanel from "components/organisms/MainPanel";
 import Header from "components/molecules/Header";
+import * as S from "components/templates/style";
 
 const CenterPage = () => {
   return (

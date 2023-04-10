@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const FilterPanelWrapper = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.gap.block}px;
+  padding: 10px 0;
 `;
 
 export const FilterForm = styled.form`

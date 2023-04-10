@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const TasksWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.gap}px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  gap: ${({ theme }) => theme.gap.block}px;
 `;

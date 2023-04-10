@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Main = styled.main``;
+
+export const Section = styled.section`
+  margin-bottom: ${({ theme }) => theme.gap.block}px;
+`;
+
 export const Container = styled.div`
   margin: 0 auto;
   padding: 0 50px;
