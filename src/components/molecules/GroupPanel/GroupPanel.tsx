@@ -12,13 +12,8 @@ const GroupPanel = ({ onOpenForm }: GroupPanelProps) => {
         Group by location
         <S.GroupCheck type="checkbox" id="groupTask" />
       </S.GroupLabel>
-      <ButtonUI
-        type="button"
-        className="primary"
-        radius="50"
-        onClick={onOpenForm}
-      >
-        +
+      <ButtonUI type="button" className="primary" onClick={onOpenForm}>
+        Add issue
       </ButtonUI>
     </S.Panel>
   );
