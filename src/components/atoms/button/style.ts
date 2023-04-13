@@ -1,14 +1,15 @@
 import styled, { css } from "styled-components";
 
 type ButtonProps = {
-  className: string;
+  $className: string;
 };
 
 export const Button = styled.button<ButtonProps>`
-  padding: 10px 15px;
+  padding: 10px;
+  min-width: 100px;
   border-radius: ${({ theme }) => theme.borderRadius};
-  ${({ theme, className }) => {
-    switch (className) {
+  ${({ theme, $className }) => {
+    switch ($className) {
       case "primary":
         return css`
           background-color: ${theme.colors.primary};
@@ -17,12 +18,17 @@ export const Button = styled.button<ButtonProps>`
         return css`
           background-color: ${theme.colors.secondary};
         `;
+      case "success":
+        return css`
+          background-color: ${theme.colors.success};
+        `;
       default:
         return css`
-          background-color: #999999;
+          background-color: ${theme.colors.primary};
         `;
     }
   }};
-  color: #f2f2f0;
-  font-weight: 700;
+  font-family: ${({ theme }) => theme.fonts.fontFam};
+  font-weight: ${({ theme }) => theme.fonts.semiBold};
+  color: ${({ theme }) => theme.colors.lightFont};
 `;
