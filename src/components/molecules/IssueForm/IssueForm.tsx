@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import ButtonUI from "components/atoms/button";
 import { Issue, IssueStatusDict } from "data";
+import ButtonUI from "components/atoms/button";
+import Label from "components/atoms/label";
 import * as S from "./style";
 
 const InitialData = {
@@ -33,10 +34,10 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
 
   return (
     <>
-      <S.IssueFormTitle>Issue report form</S.IssueFormTitle>
+      <S.IssueFormTitle tag={"h3"}>Issue report form</S.IssueFormTitle>
 
       <S.IssueForm onSubmit={handleSubmitIssue}>
-        <S.IssueLabel htmlFor="location">
+        <Label variant="form" htmlFor="location">
           Location:
           <S.IssueInput
             type="text"
@@ -47,9 +48,9 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
             placeholder="Enter location"
             required
           />
-        </S.IssueLabel>
+        </Label>
 
-        <S.IssueLabel htmlFor="title">
+        <Label variant="form" htmlFor="title">
           Title:
           <S.IssueInput
             type="text"
@@ -60,9 +61,9 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
             placeholder="Enter title"
             required
           />
-        </S.IssueLabel>
+        </Label>
 
-        <S.IssueLabel htmlFor="date">
+        <Label variant="form" htmlFor="date">
           Start date:
           <S.IssueInput
             type="date"
@@ -72,9 +73,9 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
             id="date"
             required
           />
-        </S.IssueLabel>
+        </Label>
 
-        <S.IssueLabel htmlFor="status">
+        <Label variant="form" htmlFor="status">
           Status:
           <S.IssueSelect
             id="status"
@@ -90,10 +91,10 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
               </option>
             ))}
           </S.IssueSelect>
-        </S.IssueLabel>
+        </Label>
 
         <S.ButtonFormWrapper>
-          <ButtonUI type="submit" className="primary">
+          <ButtonUI type="submit" className="success">
             Submit
           </ButtonUI>
           <ButtonUI type="button" onClick={onCloseForm} className="secondary">

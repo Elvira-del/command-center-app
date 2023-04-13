@@ -11,7 +11,7 @@ const Header = () => {
           <ButtonUI type="button" className="primary">
             CCA
           </ButtonUI>
-          <Title text={"Command center application"} />
+          <Title tag={"h1"}>Command center application</Title>
         </S.HeaderWrapper>
       </Container>
     </S.Header>

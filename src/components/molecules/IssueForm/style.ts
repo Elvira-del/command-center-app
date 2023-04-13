@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import Input from "components/atoms/input/Input";
-import Select from "components/atoms/select/Select";
+import Input from "components/atoms/input";
+import Select from "components/atoms/select";
+import Title from "components/atoms/title";
 
-export const IssueFormTitle = styled.h3`
+export const IssueFormTitle = styled(Title)`
   margin-bottom: 15px;
 `;
 
@@ -10,14 +11,6 @@ export const IssueForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.gap.elem}px;
-`;
-
-export const IssueLabel = styled.label`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2em;
-  white-space: pre;
 `;
 
 export const IssueInput = styled(Input)`
