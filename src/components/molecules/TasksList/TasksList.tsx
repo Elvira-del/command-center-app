@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Issue, IssueListTitle } from "data";
 import * as S from "./style";
+import TaskCard from "../TaskCard";
 
 type TasksListProps = {
   tasks: Issue[];
@@ -15,12 +16,13 @@ const TasksList = ({ tasks }: TasksListProps) => {
 
       <S.TasksList>
         {tasks.map((task) => (
-          <S.TaskCard key={uuidv4()}>
-            <S.TaskContent>{task.location}</S.TaskContent>
-            <S.TaskContent>{task.title}</S.TaskContent>
-            <S.TaskContent>{task.startDate}</S.TaskContent>
-            <S.TaskContent>{task.status}</S.TaskContent>
-          </S.TaskCard>
+          <TaskCard
+            key={uuidv4()}
+            location={task.location}
+            title={task.title}
+            date={task.startDate}
+            status={task.status}
+          />
         ))}
       </S.TasksList>
     </S.ListWrapper>
