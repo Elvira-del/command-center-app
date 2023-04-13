@@ -7,9 +7,19 @@ declare module "styled-components" {
     colors: {
       primary: string;
       secondary: string;
+      success: string;
 
-      font: string;
+      lightFont: string;
+      darkFont: string;
+
       bgElem: string;
+      bgFilter: string;
+    };
+
+    fonts: {
+      fontFam: string;
+      medium: number;
+      semiBold: number;
     };
 
     sizes: {

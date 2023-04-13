@@ -11,7 +11,9 @@ export default createGlobalStyle`
 
   body {
     min-height: 100vh;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;    
+    font-family: ${({ theme }) => theme.fonts.fontFam};
+    color: ${({ theme }) => theme.colors.lightFont};        
   }
 
   ul,

@@ -4,11 +4,21 @@ export const theme: DefaultTheme = {
   borderRadius: "10px",
 
   colors: {
-    primary: "#5d8c56",
-    secondary: "#2a403a",
+    primary: "#5d80ba",
+    secondary: "#ba7a70",
+    success: "#2c6e50",
 
-    font: "#070d0c",
-    bgElem: "rgba(9, 9, 9, 0.1)",
+    lightFont: "#f2f2f2",
+    darkFont: "#1d1d1d",
+
+    bgElem: "#555555",
+    bgFilter: "rgb(93 93 93 / 70%)",
+  },
+
+  fonts: {
+    fontFam: "'Montserrat', sans-serif",
+    medium: 500,
+    semiBold: 600,
   },
 
   sizes: {
@@ -17,7 +27,7 @@ export const theme: DefaultTheme = {
   },
 
   gap: {
-    elem: 10,
-    block: 30,
+    elem: 15,
+    block: 35,
   },
 };
