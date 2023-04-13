@@ -5,4 +5,9 @@ export const Select = styled.select`
   height: 100%;
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.colors.bgElem};
+  font-family: ${({ theme }) => theme.fonts.fontFam};
+
+  & {
+    color: ${({ theme }) => theme.colors.lightFont};
+  }
 `;

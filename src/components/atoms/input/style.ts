@@ -5,4 +5,10 @@ export const Input = styled.input`
   height: 100%;
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.colors.bgElem};
+  font-family: ${({ theme }) => theme.fonts.fontFam};
+  color: ${({ theme }) => theme.colors.lightFont};
+
+  &::placeholder {
+    color: rgb(242 242 242 / 50%);
+  }
 `;
