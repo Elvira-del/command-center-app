@@ -1,7 +1,8 @@
 import { ChangeEvent } from "react";
+import { IssueStatusDict } from "data";
 import Input from "components/atoms/input";
 import Select from "components/atoms/select";
-import { IssueStatusDict } from "data";
+import Label from "components/atoms/label";
 import * as S from "./style";
 
 type FilterPanelProps = {
@@ -17,26 +18,26 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelProps) => {
   return (
     <S.FilterPanelWrapper>
       <S.FilterForm>
-        <S.FilterLabel htmlFor="titleFilter">
+        <Label variant="filter" htmlFor="titleFilter">
           Issue title
           <Input type="text" id="titleFilter" placeholder="Enter text..." />
-        </S.FilterLabel>
+        </Label>
 
         <S.FilterFieldset>
           <S.DateLegend>Issue date</S.DateLegend>
 
-          <S.FilterDateLabel htmlFor="dateFrom">
+          <Label variant="date" htmlFor="dateFrom">
             from
             <Input type="date" id="dateFrom" />
-          </S.FilterDateLabel>
+          </Label>
 
-          <S.FilterDateLabel htmlFor="dateTo">
+          <Label variant="date" htmlFor="dateTo">
             to
             <Input type="date" id="dateTo" />
-          </S.FilterDateLabel>
+          </Label>
         </S.FilterFieldset>
 
-        <S.FilterLabel htmlFor="statusFilter">
+        <Label variant="filter" htmlFor="statusFilter">
           Status
           <Select
             id="statusFilter"
@@ -50,7 +51,7 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelProps) => {
               </option>
             ))}
           </Select>
-        </S.FilterLabel>
+        </Label>
       </S.FilterForm>
     </S.FilterPanelWrapper>
   );

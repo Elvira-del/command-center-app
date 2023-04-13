@@ -17,24 +17,10 @@ export const FilterForm = styled.form`
   }
 `;
 
-export const FilterLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  @media (max-width: 510px) {
-    width: 100%;
-  }
-`;
-
-export const FilterDateLabel = styled(FilterLabel)`
-  flex-direction: row;
-  align-items: flex-end;
-`;
-
 export const FilterFieldset = styled.fieldset`
   display: flex;
   gap: ${({ theme }) => theme.gap.elem}px;
+  font-weight: ${({ theme }) => theme.fonts.medium};
 
   @media (max-width: 360px) {
     flex-direction: column;
