@@ -1,10 +1,20 @@
 {
   "files": {
-    "main.js": "/command-center-app/static/js/main.159ac284.js",
+    "main.css": "/command-center-app/static/css/main.d00a76b7.css",
+    "main.js": "/command-center-app/static/js/main.b3e2ae4e.js",
+    "static/media/space.jpg": "/command-center-app/static/media/space.a83806589777de7846d0.jpg",
+    "static/media/Montserrat-SemiBold.woff": "/command-center-app/static/media/Montserrat-SemiBold.74bb7635e62f63c439cb.woff",
+    "static/media/Montserrat-Medium.woff": "/command-center-app/static/media/Montserrat-Medium.0249442d179f8442a6ec.woff",
+    "static/media/Montserrat-Regular.woff": "/command-center-app/static/media/Montserrat-Regular.f8a540ba243870511806.woff",
+    "static/media/Montserrat-Medium.woff2": "/command-center-app/static/media/Montserrat-Medium.be63c01697e50cedf607.woff2",
+    "static/media/Montserrat-SemiBold.woff2": "/command-center-app/static/media/Montserrat-SemiBold.1f62be1da50480f1ad85.woff2",
+    "static/media/Montserrat-Regular.woff2": "/command-center-app/static/media/Montserrat-Regular.54e5ab38e7cf2d5499e6.woff2",
     "index.html": "/command-center-app/index.html",
-    "main.159ac284.js.map": "/command-center-app/static/js/main.159ac284.js.map"
+    "main.d00a76b7.css.map": "/command-center-app/static/css/main.d00a76b7.css.map",
+    "main.b3e2ae4e.js.map": "/command-center-app/static/js/main.b3e2ae4e.js.map"
   },
   "entrypoints": [
-    "static/js/main.159ac284.js"
+    "static/css/main.d00a76b7.css",
+    "static/js/main.b3e2ae4e.js"
   ]
 }
