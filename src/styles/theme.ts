@@ -30,4 +30,10 @@ export const theme: DefaultTheme = {
     elem: 15,
     block: 35,
   },
+
+  breakpoints: {
+    laptops: "max-width: 1024px",
+    tablets: "max-width: 768px",
+    mobile: "max-width: 480px",
+  },
 };

@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
-export const FilterPanelWrapper = styled.div`
+export const FilterPanel = styled.div`
   margin-bottom: ${({ theme }) => theme.gap.block}px;
-  padding: 10px 0;
 `;
 
-export const FilterForm = styled.form`
+export const FilterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  gap: ${({ theme }) => theme.gap.elem}px;
+  padding: 10px 0;
 
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: ${({ theme }) => theme.gap.elem}px;
+  @media (${({ theme }) => theme.breakpoints.tablets}) {
+    flex-direction: column;
   }
 `;
 
@@ -22,7 +20,7 @@ export const FilterFieldset = styled.fieldset`
   gap: ${({ theme }) => theme.gap.elem}px;
   font-weight: ${({ theme }) => theme.fonts.medium};
 
-  @media (max-width: 360px) {
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: column;
   }
 `;

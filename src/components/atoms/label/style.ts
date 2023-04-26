@@ -35,7 +35,7 @@ export const Label = styled.label<LabelProps>`
   gap: 5px;
   font-weight: ${({ theme }) => theme.fonts.medium};
 
-  @media (max-width: 510px) {
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
   }
 `;

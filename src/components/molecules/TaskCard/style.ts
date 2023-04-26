@@ -12,7 +12,7 @@ export const TaskCard = styled.li`
     margin-bottom: ${({ theme }) => theme.gap.elem}px;
   }
 
-  @media (max-width: 360px) {
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
     gap: 20px;
     padding: ${({ theme }) => theme.gap.elem}px;
   }

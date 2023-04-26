@@ -12,11 +12,11 @@ export const Container = styled.div`
   max-width: ${({ theme }) => theme.sizes.container.width}px;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (${({ theme }) => theme.breakpoints.tablets}) {
     padding: 0 30px;
   }
 
-  @media (max-width: 560px) {
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
     padding: 0 15px;
   }
 `;

@@ -5,6 +5,7 @@ import FilterPanel from "components/molecules/FilterPanel";
 import GroupPanel from "components/molecules/GroupPanel";
 import IssueForm from "components/molecules/IssueForm";
 import TasksList from "components/molecules/TasksList";
+import Title from "components/atoms/title";
 import * as S from "./style";
 
 const MainPanel = () => {
@@ -46,10 +47,10 @@ const MainPanel = () => {
         ) : (
           <>
             <GroupPanel onOpenForm={handleOpenIssueForm} />
-            {filteredStatusIssues.length ? (
+            {Boolean(filteredStatusIssues.length) ? (
               <TasksList tasks={filteredStatusIssues} />
             ) : (
-              <h2>No issues found</h2>
+              <Title tag={"h2"}>No issues found</Title>
             )}
           </>
         )}

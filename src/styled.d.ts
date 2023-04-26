@@ -31,5 +31,11 @@ declare module "styled-components" {
       elem: number;
       block: number;
     };
+
+    breakpoints: {
+      laptops: string;
+      tablets: string;
+      mobile: string;
+    };
   }
 }

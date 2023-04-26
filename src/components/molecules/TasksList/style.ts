@@ -11,7 +11,7 @@ export const TasksTitle = styled.span`
   text-align: center;
   font-weight: ${({ theme }) => theme.fonts.medium};
 
-  @media (max-width: 360px) {
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
     padding: ${({ theme }) => theme.gap.elem}px;
   }
 `;

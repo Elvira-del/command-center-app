@@ -4,11 +4,11 @@ export const Title = styled.h1`
   font-weight: ${({ theme }) => theme.fonts.medium};
   color: ${({ theme }) => theme.colors.lightFont};
 
-  @media (max-width: 768px) {
+  @media (${({ theme }) => theme.breakpoints.tablets}) {
     font-size: 24px;
   }
 
-  @media (max-width: 420px) {
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 20px;
   }
 `;

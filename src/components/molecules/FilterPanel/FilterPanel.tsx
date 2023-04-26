@@ -16,8 +16,8 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelProps) => {
   };
 
   return (
-    <S.FilterPanelWrapper>
-      <S.FilterForm>
+    <S.FilterPanel>
+      <S.FilterWrapper>
         <Label variant="filter" htmlFor="titleFilter">
           Issue title
           <Input type="text" id="titleFilter" placeholder="Enter text..." />
@@ -52,8 +52,8 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelProps) => {
             ))}
           </Select>
         </Label>
-      </S.FilterForm>
-    </S.FilterPanelWrapper>
+      </S.FilterWrapper>
+    </S.FilterPanel>
   );
 };
 
