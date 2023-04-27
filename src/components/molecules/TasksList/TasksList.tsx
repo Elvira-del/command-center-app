@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Issue, IssueListTitle } from "data";
+import TaskCard from "./TaskCard";
 import * as S from "./style";
-import TaskCard from "../TaskCard";
 
 type TasksListProps = {
   tasks: Issue[];
