@@ -3,8 +3,10 @@ import Input from "components/atoms/input";
 import Select from "components/atoms/select";
 import Title from "components/atoms/title";
 
+export const IssueFormWrapper = styled.div``;
+
 export const IssueFormTitle = styled(Title)`
-  margin-bottom: 15px;
+  margin-bottom: ${({ theme }) => theme.gap.elem}px;
 `;
 
 export const IssueForm = styled.form`

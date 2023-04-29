@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Issue, IssueStatusDict } from "data";
-import ButtonUI from "components/atoms/button";
+import Button from "components/atoms/button";
 import Label from "components/atoms/label";
 import * as S from "./style";
 
@@ -33,7 +33,7 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
   };
 
   return (
-    <>
+    <S.IssueFormWrapper>
       <S.IssueFormTitle tag={"h3"}>Issue report form</S.IssueFormTitle>
 
       <S.IssueForm onSubmit={handleSubmitIssue}>
@@ -94,15 +94,15 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
         </Label>
 
         <S.ButtonFormWrapper>
-          <ButtonUI type="submit" className="success">
+          <Button type="submit" className="success">
             Submit
-          </ButtonUI>
-          <ButtonUI type="button" onClick={onCloseForm} className="secondary">
+          </Button>
+          <Button type="button" onClick={onCloseForm} className="secondary">
             Cancel
-          </ButtonUI>
+          </Button>
         </S.ButtonFormWrapper>
       </S.IssueForm>
-    </>
+    </S.IssueFormWrapper>
   );
 };
 

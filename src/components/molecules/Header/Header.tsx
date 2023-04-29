@@ -1,5 +1,5 @@
 import { Container } from "components/templates/style";
-import ButtonUI from "components/atoms/button";
+import Button from "components/atoms/button";
 import Title from "components/atoms/title";
 import * as S from "./style";
 
@@ -8,9 +8,9 @@ const Header = () => {
     <S.Header>
       <Container>
         <S.HeaderWrapper>
-          <ButtonUI type="button" className="primary">
+          <Button type="button" className="primary">
             CCA
-          </ButtonUI>
+          </Button>
           <Title tag={"h1"}>Command center application</Title>
         </S.HeaderWrapper>
       </Container>

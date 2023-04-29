@@ -1,8 +1,36 @@
-import MainPanel from "components/organisms/MainPanel";
+import { useMemo, useState } from "react";
+import useLocalStorage from "hooks/useLocalStorage";
+import { Issue } from "data";
 import Header from "components/molecules/Header";
+import FilterPanel from "components/molecules/FilterPanel";
+import TaskDisplay from "components/organisms/TaskDisplay";
+import IssueForm from "components/molecules/IssueForm";
 import * as S from "components/templates/style";
 
 const CenterPage = () => {
+  const [issues, setIssues] = useLocalStorage<Issue[]>("localIssues", []);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("");
+
+  const filteredStatusIssues = useMemo(() => {
+    if (selectedStatus) {
+      return issues.filter((issue) => issue.status === selectedStatus);
+    }
+    return issues;
+  }, [issues, selectedStatus]);
+
+  const handleAddIssue = (issue: Issue) => {
+    setIssues([...issues, issue]);
+  };
+
+  const handleStatusFilter = (status: string) => {
+    setSelectedStatus(status);
+  };
+
+  const handleOpenIssueForm = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <Header />
@@ -10,7 +38,22 @@ const CenterPage = () => {
       <S.Main>
         <S.Section>
           <S.Container>
-            <MainPanel />
+            <FilterPanel
+              status={selectedStatus}
+              onSelectStatus={handleStatusFilter}
+            />
+
+            {isOpen ? (
+              <IssueForm
+                onAddIssue={handleAddIssue}
+                onCloseForm={handleOpenIssueForm}
+              />
+            ) : (
+              <TaskDisplay
+                onOpenForm={handleOpenIssueForm}
+                tasks={filteredStatusIssues}
+              />
+            )}
           </S.Container>
         </S.Section>
       </S.Main>

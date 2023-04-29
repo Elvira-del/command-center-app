@@ -1,4 +1,4 @@
-import ButtonUI from "components/atoms/button";
+import Button from "components/atoms/button";
 import * as S from "./style";
 
 type GroupPanelProps = {
@@ -12,9 +12,9 @@ const GroupPanel = ({ onOpenForm }: GroupPanelProps) => {
         Group by location
         <S.GroupCheck type="checkbox" id="groupTask" />
       </S.GroupLabel>
-      <ButtonUI type="button" className="primary" onClick={onOpenForm}>
+      <Button type="button" className="primary" onClick={onOpenForm}>
         Add issue
-      </ButtonUI>
+      </Button>
     </S.Panel>
   );
 };
