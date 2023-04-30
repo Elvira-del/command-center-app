@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Issue, IssueStatusDict } from "data";
 import Button from "components/atoms/button";
 import Label from "components/atoms/label";
@@ -18,6 +19,7 @@ type IssueFormProps = {
 
 const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
   const [issue, setIssue] = useState<Issue>(InitialData);
+  const navigate = useNavigate();
 
   const handleChangeIssue = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -30,6 +32,12 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
     onAddIssue(issue);
     setIssue(InitialData);
     onCloseForm();
+    navigate("/command-center-app", { replace: false });
+  };
+
+  const handleCancelForm = () => {
+    onCloseForm();
+    navigate("/command-center-app", { replace: false });
   };
 
   return (
@@ -97,7 +105,11 @@ const IssueForm = ({ onAddIssue, onCloseForm }: IssueFormProps) => {
           <Button type="submit" className="success">
             Submit
           </Button>
-          <Button type="button" onClick={onCloseForm} className="secondary">
+          <Button
+            type="button"
+            onClick={handleCancelForm}
+            className="secondary"
+          >
             Cancel
           </Button>
         </S.ButtonFormWrapper>
