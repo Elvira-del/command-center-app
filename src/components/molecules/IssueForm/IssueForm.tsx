@@ -28,11 +28,11 @@ const IssueForm = () => {
     e.preventDefault();
     setIssues([...issues, issue]);
     setIssue(InitialData);
-    navigate("/", { replace: false });
+    navigate("/command-center-app", { replace: false });
   };
 
   const handleCancelForm = () => {
-    navigate("/", { replace: false });
+    navigate("/command-center-app", { replace: false });
   };
 
   return (

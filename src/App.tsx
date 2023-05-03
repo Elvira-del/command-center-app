@@ -28,7 +28,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Routes>
-          <Route path="/*" element={<Layout />}>
+          <Route path="command-center-app/*" element={<Layout />}>
             <Route index element={<CenterPage />} />
             <Route path="issue-form" element={<FormPage />} />
             <Route path="*" element={<NotFoundPage />} />

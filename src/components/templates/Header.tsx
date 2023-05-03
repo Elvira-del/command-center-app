@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/", { replace: false });
+    navigate("/command-center-app", { replace: false });
   };
 
   return (
