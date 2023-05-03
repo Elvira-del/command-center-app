@@ -1,13 +1,13 @@
 import * as S from "./style";
 
-type CardProps = {
+type TaskCardType = {
   location: string;
   title: string;
   date: string;
   status: string;
 };
 
-const TaskCard = ({ location, title, date, status }: CardProps) => {
+const TaskCard = ({ location, title, date, status }: TaskCardType) => {
   return (
     <S.TaskCard>
       <S.TaskContent>{location}</S.TaskContent>

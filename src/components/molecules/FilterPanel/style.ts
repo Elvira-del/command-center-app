@@ -8,7 +8,6 @@ export const FilterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: ${({ theme }) => theme.gap.elem}px;
-  padding: 10px 0;
 
   @media (${({ theme }) => theme.breakpoints.tablets}) {
     flex-direction: column;

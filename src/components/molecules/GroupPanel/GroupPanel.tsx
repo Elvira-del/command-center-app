@@ -2,15 +2,10 @@ import { useNavigate } from "react-router-dom";
 import Button from "components/atoms/button";
 import * as S from "./style";
 
-type GroupPanelProps = {
-  onOpenForm: () => void;
-};
-
-const GroupPanel = ({ onOpenForm }: GroupPanelProps) => {
+const GroupPanel = () => {
   const navigate = useNavigate();
 
   const handleOpenForm = () => {
-    onOpenForm();
     navigate("issue-form", { replace: false });
   };
 

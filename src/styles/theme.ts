@@ -28,7 +28,7 @@ export const theme: DefaultTheme = {
 
   gap: {
     elem: 15,
-    block: 45,
+    block: 40,
   },
 
   breakpoints: {

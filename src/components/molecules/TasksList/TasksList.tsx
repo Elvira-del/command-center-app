@@ -3,11 +3,11 @@ import { Issue, IssueListTitle } from "data";
 import TaskCard from "./TaskCard";
 import * as S from "./style";
 
-type TasksListProps = {
+type TasksListType = {
   tasks: Issue[];
 };
 
-const TasksList = ({ tasks }: TasksListProps) => {
+const TasksList = ({ tasks }: TasksListType) => {
   return (
     <S.ListWrapper>
       {IssueListTitle.map((title) => (

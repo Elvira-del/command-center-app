@@ -1,12 +1,12 @@
 import { ElementType, ReactNode } from "react";
 import * as S from "./style";
 
-type TitleProps = {
+type TitleType = {
   tag: ElementType;
   children: ReactNode;
 };
 
-const Title = ({ tag, children, ...rest }: TitleProps) => {
+const Title = ({ tag, children, ...rest }: TitleType) => {
   return (
     <S.Title as={tag} {...rest}>
       {children}

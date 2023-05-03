@@ -4,15 +4,14 @@ import TasksList from "components/molecules/TasksList";
 import Title from "components/atoms/title";
 import * as S from "./style";
 
-type TaskDisplayProps = {
-  onOpenForm: () => void;
+type TaskDisplayType = {
   tasks: Issue[];
 };
 
-const TaskDisplay = ({ onOpenForm, tasks }: TaskDisplayProps) => {
+const TaskDisplay = ({ tasks }: TaskDisplayType) => {
   return (
     <S.TasksWrapper>
-      <GroupPanel onOpenForm={onOpenForm} />
+      <GroupPanel />
       {Boolean(tasks.length) ? (
         <TasksList tasks={tasks} />
       ) : (

@@ -1,11 +1,11 @@
 import { ChangeEventHandler, InputHTMLAttributes } from "react";
 import * as S from "./style";
 
-type InputProps = {
+type InputType = {
   onChange?: ChangeEventHandler;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const Input = ({ onChange, ...rest }: InputProps) => {
+const Input = ({ onChange, ...rest }: InputType) => {
   return <S.Input onChange={onChange} {...rest} />;
 };
 

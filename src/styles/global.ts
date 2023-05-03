@@ -13,6 +13,7 @@ export default createGlobalStyle`
     min-height: 100vh;
     scroll-behavior: smooth;    
     font-family: ${({ theme }) => theme.fonts.fontFam};
+    font-size: 16px;
     color: ${({ theme }) => theme.colors.lightFont};        
   }
 
@@ -40,5 +41,11 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+  }
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    body {    
+    font-size: 12px;
+  }
   }
 `;

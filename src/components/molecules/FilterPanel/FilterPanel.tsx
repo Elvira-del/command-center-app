@@ -5,12 +5,12 @@ import Select from "components/atoms/select";
 import Label from "components/atoms/label";
 import * as S from "./style";
 
-type FilterPanelProps = {
+type FilterPanelType = {
   status: string;
   onSelectStatus: (status: string) => void;
 };
 
-const FilterPanel = ({ status, onSelectStatus }: FilterPanelProps) => {
+const FilterPanel = ({ status, onSelectStatus }: FilterPanelType) => {
   const handleChangeStatus = (e: ChangeEvent<HTMLSelectElement>) => {
     onSelectStatus(e.target.value);
   };
