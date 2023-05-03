@@ -8,6 +8,7 @@ import GlobalStyle from "styles/global";
 import Layout from "components/templates/Layout";
 import CenterPage from "components/pages/CenterPage";
 import FormPage from "components/pages/FormPage";
+import NotFoundPage from "components/pages/NotFoundPage";
 
 type IssuesContextType = {
   issues: Issue[];
@@ -30,6 +31,7 @@ function App() {
           <Route path="/*" element={<Layout />}>
             <Route index element={<CenterPage />} />
             <Route path="issue-form" element={<FormPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </ThemeProvider>
