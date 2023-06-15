@@ -5,6 +5,13 @@ export type Issue = {
   status: string;
 };
 
+export type FiltersListType = {
+  titleFilter: string;
+  dateFrom: string;
+  dateTo: string;
+  statusFilter: string;
+};
+
 export const IssueListTitle = [
   { id: "location", value: "Location" },
   { id: "title", value: "Title" },
@@ -24,6 +31,13 @@ export const IssueStatusDict = [
   { id: "handled", value: "Handled" },
   { id: "archived", value: "Archived" },
 ];
+
+export const InitialFiltersList = {
+  titleFilter: "",
+  dateFrom: "",
+  dateTo: "",
+  statusFilter: "",
+};
 
 // for testing
 // export const TestData = [

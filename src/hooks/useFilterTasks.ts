@@ -1,7 +1,6 @@
 import { useContext, useMemo, useState } from "react";
-import { Issue } from "data";
+import { FiltersListType, Issue } from "data";
 import { IssueContext } from "App";
-import { FiltersListType } from "components/molecules/FilterPanel/FilterPanel";
 
 export default function useFilterTasks(filters: FiltersListType): Issue[] {
   const { issues } = useContext(IssueContext);
@@ -16,6 +15,14 @@ export default function useFilterTasks(filters: FiltersListType): Issue[] {
       );
     }
 
+    if (filters.dateFrom && filters.dateTo) {
+      filtered = filtered.filter(
+        (issue) =>
+          issue.startDate >= filters.dateFrom &&
+          issue.startDate <= filters.dateTo
+      );
+    }
+
     if (filters.statusFilter) {
       filtered = filtered.filter(
         (issue) => issue.status === filters.statusFilter
@@ -23,7 +30,7 @@ export default function useFilterTasks(filters: FiltersListType): Issue[] {
     }
 
     setFilteredIssues(filtered);
-  }, [issues, filters.statusFilter, filters.titleFilter]);
+  }, [issues, filters]);
 
   return filteredIssues;
 }

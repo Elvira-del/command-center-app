@@ -1,14 +1,9 @@
 import { ChangeEvent } from "react";
-import { IssueStatusDict } from "data";
+import { FiltersListType, IssueStatusDict } from "data";
 import Input from "components/atoms/input";
 import Select from "components/atoms/select";
 import Label from "components/atoms/label";
 import * as S from "./style";
-
-export type FiltersListType = {
-  titleFilter: string;
-  statusFilter: string;
-};
 
 type FilterPanelType = {
   filters: FiltersListType;
@@ -45,12 +40,24 @@ const FilterPanel = ({ filters, onFilter }: FilterPanelType) => {
 
           <Label variant="date" htmlFor="dateFrom">
             from
-            <Input type="date" id="dateFrom" name="dateFrom" />
+            <Input
+              type="date"
+              id="dateFrom"
+              name="dateFrom"
+              value={filters.dateFrom}
+              onChange={handleChangeFilters}
+            />
           </Label>
 
           <Label variant="date" htmlFor="dateTo">
             to
-            <Input type="date" id="dateTo" name="dateTo" />
+            <Input
+              type="date"
+              id="dateTo"
+              name="dateTo"
+              value={filters.dateTo}
+              onChange={handleChangeFilters}
+            />
           </Label>
         </S.FilterFieldset>
 

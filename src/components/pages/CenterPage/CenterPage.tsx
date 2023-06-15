@@ -1,13 +1,9 @@
 import { useContext, useState } from "react";
+import { FiltersListType, InitialFiltersList } from "data";
 import { IssueContext } from "App";
 import FilterPanel from "components/molecules/FilterPanel";
 import TaskDisplay from "components/organisms/TaskDisplay";
 import useFilterTasks from "hooks/useFilterTasks";
-
-const InitialFiltersList = {
-  titleFilter: "",
-  statusFilter: "",
-};
 
 const CenterPage = () => {
   const { issues } = useContext(IssueContext);
@@ -15,7 +11,7 @@ const CenterPage = () => {
 
   const filteredTasks = useFilterTasks(filters);
 
-  const handleTasksFilter = (filters: typeof InitialFiltersList) => {
+  const handleTasksFilter = (filters: FiltersListType) => {
     setFilters(filters);
   };
 
