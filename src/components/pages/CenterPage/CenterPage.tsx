@@ -1,31 +1,29 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import { IssueContext } from "App";
 import FilterPanel from "components/molecules/FilterPanel";
 import TaskDisplay from "components/organisms/TaskDisplay";
+import useFilterTasks from "hooks/useFilterTasks";
+
+const InitialFiltersList = {
+  titleFilter: "",
+  statusFilter: "",
+};
 
 const CenterPage = () => {
   const { issues } = useContext(IssueContext);
-  const [selectedStatus, setSelectedStatus] = useState("");
+  const [filters, setFilters] = useState(InitialFiltersList);
 
-  const filteredStatusIssues = useMemo(() => {
-    if (selectedStatus) {
-      return issues.filter((issue) => issue.status === selectedStatus);
-    }
-    return issues;
-  }, [issues, selectedStatus]);
+  const filteredTasks = useFilterTasks(filters);
 
-  const handleStatusFilter = (status: string) => {
-    setSelectedStatus(status);
+  const handleTasksFilter = (filters: typeof InitialFiltersList) => {
+    setFilters(filters);
   };
 
   return (
     <>
-      <FilterPanel
-        status={selectedStatus}
-        onSelectStatus={handleStatusFilter}
-      />
+      <FilterPanel filters={filters} onFilter={handleTasksFilter} />
 
-      <TaskDisplay tasks={filteredStatusIssues} />
+      <TaskDisplay tasks={filteredTasks} />
     </>
   );
 };

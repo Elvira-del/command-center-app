@@ -5,14 +5,24 @@ import Select from "components/atoms/select";
 import Label from "components/atoms/label";
 import * as S from "./style";
 
-type FilterPanelType = {
-  status: string;
-  onSelectStatus: (status: string) => void;
+export type FiltersListType = {
+  titleFilter: string;
+  statusFilter: string;
 };
 
-const FilterPanel = ({ status, onSelectStatus }: FilterPanelType) => {
-  const handleChangeStatus = (e: ChangeEvent<HTMLSelectElement>) => {
-    onSelectStatus(e.target.value);
+type FilterPanelType = {
+  filters: FiltersListType;
+  onFilter: (filters: FiltersListType) => void;
+};
+
+const FilterPanel = ({ filters, onFilter }: FilterPanelType) => {
+  const handleChangeFilters = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
+  ) => {
+    onFilter({
+      ...filters,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -20,7 +30,14 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelType) => {
       <S.FilterWrapper>
         <Label variant="filter" htmlFor="titleFilter">
           Issue title
-          <Input type="text" id="titleFilter" placeholder="Enter text..." />
+          <Input
+            type="text"
+            id="titleFilter"
+            name="titleFilter"
+            value={filters.titleFilter}
+            onChange={handleChangeFilters}
+            placeholder="Enter text..."
+          />
         </Label>
 
         <S.FilterFieldset>
@@ -28,12 +45,12 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelType) => {
 
           <Label variant="date" htmlFor="dateFrom">
             from
-            <Input type="date" id="dateFrom" />
+            <Input type="date" id="dateFrom" name="dateFrom" />
           </Label>
 
           <Label variant="date" htmlFor="dateTo">
             to
-            <Input type="date" id="dateTo" />
+            <Input type="date" id="dateTo" name="dateTo" />
           </Label>
         </S.FilterFieldset>
 
@@ -41,8 +58,9 @@ const FilterPanel = ({ status, onSelectStatus }: FilterPanelType) => {
           Status
           <Select
             id="statusFilter"
-            value={status}
-            onChange={handleChangeStatus}
+            name="statusFilter"
+            value={filters.statusFilter}
+            onChange={handleChangeFilters}
           >
             <option value="">-- Select status --</option>
             {IssueStatusDict.map((status) => (
