@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/command-center-app/static/css/main.60a84bec.css",
-    "main.js": "/command-center-app/static/js/main.6145ce0f.js",
+    "main.js": "/command-center-app/static/js/main.78d73074.js",
     "static/media/space.jpg": "/command-center-app/static/media/space.a83806589777de7846d0.jpg",
     "static/media/Montserrat-SemiBold.woff": "/command-center-app/static/media/Montserrat-SemiBold.74bb7635e62f63c439cb.woff",
     "static/media/Montserrat-Medium.woff": "/command-center-app/static/media/Montserrat-Medium.0249442d179f8442a6ec.woff",
@@ -11,10 +11,10 @@
     "static/media/Montserrat-Regular.woff2": "/command-center-app/static/media/Montserrat-Regular.54e5ab38e7cf2d5499e6.woff2",
     "index.html": "/command-center-app/index.html",
     "main.60a84bec.css.map": "/command-center-app/static/css/main.60a84bec.css.map",
-    "main.6145ce0f.js.map": "/command-center-app/static/js/main.6145ce0f.js.map"
+    "main.78d73074.js.map": "/command-center-app/static/js/main.78d73074.js.map"
   },
   "entrypoints": [
     "static/css/main.60a84bec.css",
-    "static/js/main.6145ce0f.js"
+    "static/js/main.78d73074.js"
   ]
 }
