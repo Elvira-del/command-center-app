@@ -1,8 +1,8 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { getLocalStorage, setLocalStorage } from "utils/localStorage";
 import { Issue } from "data";
-import useLocalStorage from "hooks/useLocalStorage";
 import { theme } from "styles/theme";
 import GlobalStyle from "styles/global";
 import Layout from "components/templates/Layout";
@@ -20,7 +20,13 @@ export const IssueContext = createContext<IssuesContextType>({
 });
 
 function App() {
-  const [issues, setIssues] = useLocalStorage<Issue[]>("localIssues", []);
+  const [issues, setIssues] = useState<Issue[]>(
+    getLocalStorage("localIssues") ?? []
+  );
+
+  useEffect(() => {
+    setLocalStorage("localIssues", issues);
+  }, [issues]);
 
   return (
     <IssueContext.Provider value={{ issues, setIssues }}>
