@@ -1,13 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import Button from "components/atoms/button";
+import { ModalContext } from "components/organisms/TaskDisplay/TaskDisplay";
 import * as S from "./style";
 
 const GroupPanel = () => {
-  const navigate = useNavigate();
-
-  const handleOpenForm = () => {
-    navigate("issue-form", { replace: false });
-  };
+  const { setIsShow } = useContext(ModalContext);
 
   return (
     <S.Panel>
@@ -15,7 +12,7 @@ const GroupPanel = () => {
         Group by location
         <S.GroupCheck type="checkbox" id="groupTask" />
       </S.GroupLabel>
-      <Button type="button" className="primary" onClick={handleOpenForm}>
+      <Button type="button" className="primary" onClick={() => setIsShow(true)}>
         Add issue
       </Button>
     </S.Panel>

@@ -16,13 +16,7 @@ const TasksList = ({ tasks }: TasksListType) => {
 
       <S.TasksList>
         {tasks.map((task) => (
-          <TaskCard
-            key={uuidv4()}
-            location={task.location}
-            title={task.title}
-            date={task.startDate}
-            status={task.status}
-          />
+          <TaskCard key={uuidv4()} task={task} />
         ))}
       </S.TasksList>
     </S.ListWrapper>

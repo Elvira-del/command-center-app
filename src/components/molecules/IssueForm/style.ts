@@ -3,7 +3,19 @@ import Input from "components/atoms/input";
 import Select from "components/atoms/select";
 import Title from "components/atoms/title";
 
-export const IssueFormWrapper = styled.div``;
+export const IssueFormWrapper = styled.div`
+  padding: ${({ theme }) => theme.gap.block}px;
+  width: 50%;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background-color: ${({ theme }) => theme.colors.bgElem};
+
+  @media (${({ theme }) => theme.breakpoints.tablets}) {
+    width: 75%;
+  }
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 90%;
+  }
+`;
 
 export const IssueFormTitle = styled(Title)`
   margin-bottom: ${({ theme }) => theme.gap.elem}px;

@@ -7,7 +7,6 @@ import { theme } from "styles/theme";
 import GlobalStyle from "styles/global";
 import Layout from "components/templates/Layout";
 import CenterPage from "components/pages/CenterPage";
-import FormPage from "components/pages/FormPage";
 import NotFoundPage from "components/pages/NotFoundPage";
 
 type IssuesContextType = {
@@ -30,7 +29,6 @@ function App() {
         <Routes>
           <Route path="command-center-app/*" element={<Layout />}>
             <Route index element={<CenterPage />} />
-            <Route path="issue-form" element={<FormPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

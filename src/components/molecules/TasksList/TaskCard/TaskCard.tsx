@@ -1,19 +1,17 @@
+import { Issue } from "data";
 import * as S from "./style";
 
 type TaskCardType = {
-  location: string;
-  title: string;
-  date: string;
-  status: string;
+  task: Issue;
 };
 
-const TaskCard = ({ location, title, date, status }: TaskCardType) => {
+const TaskCard = ({ task }: TaskCardType) => {
   return (
     <S.TaskCard>
-      <S.TaskContent>{location}</S.TaskContent>
-      <S.TaskContent>{title}</S.TaskContent>
-      <S.TaskContent>{date}</S.TaskContent>
-      <S.TaskContent>{status}</S.TaskContent>
+      <S.TaskContent>{task.location}</S.TaskContent>
+      <S.TaskContent>{task.title}</S.TaskContent>
+      <S.TaskContent>{task.startDate}</S.TaskContent>
+      <S.TaskContent>{task.status}</S.TaskContent>
     </S.TaskCard>
   );
 };

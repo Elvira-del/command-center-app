@@ -1,4 +1,5 @@
 export type Issue = {
+  id: string;
   location: string;
   title: string;
   startDate: string;
@@ -10,6 +11,14 @@ export type FiltersListType = {
   dateFrom: string;
   dateTo: string;
   statusFilter: string;
+};
+
+export const InitialIssue = {
+  id: "",
+  location: "",
+  title: "",
+  startDate: "",
+  status: "",
 };
 
 export const IssueListTitle = [

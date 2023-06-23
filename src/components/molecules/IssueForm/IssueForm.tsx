@@ -1,42 +1,48 @@
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
+  useContext,
+  useState,
+} from "react";
+import { v4 as uuidv4 } from "uuid";
+import { InitialIssue, Issue, IssueStatusDict } from "data";
 import { IssueContext } from "App";
-import { Issue, IssueStatusDict } from "data";
+import { ModalContext } from "components/organisms/TaskDisplay/TaskDisplay";
 import Button from "components/atoms/button";
 import Label from "components/atoms/label";
 import * as S from "./style";
 
-const InitialData = {
-  location: "",
-  title: "",
-  startDate: "",
-  status: "",
-};
-
 const IssueForm = () => {
   const { issues, setIssues } = useContext(IssueContext);
-  const [issue, setIssue] = useState<Issue>(InitialData);
-  const navigate = useNavigate();
+  const { setIsShow } = useContext(ModalContext);
+
+  const [issue, setIssue] = useState<Issue>(InitialIssue);
 
   const handleChangeIssue = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setIssue({ ...issue, [e.target.name]: e.target.value });
+    setIssue({ ...issue, id: uuidv4(), [e.target.name]: e.target.value });
   };
 
   const handleSubmitIssue = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIssues([...issues, issue]);
-    setIssue(InitialData);
-    navigate("/command-center-app", { replace: false });
+    setIsShow(false);
+    setIssue(InitialIssue);
   };
 
   const handleCancelForm = () => {
-    navigate("/command-center-app", { replace: false });
+    setIsShow(false);
+    setIssue(InitialIssue);
+  };
+
+  const handleStopPropagation = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
   };
 
   return (
-    <S.IssueFormWrapper>
+    <S.IssueFormWrapper onClick={handleStopPropagation}>
       <S.IssueFormTitle tag={"h3"}>Issue report form</S.IssueFormTitle>
 
       <S.IssueForm onSubmit={handleSubmitIssue}>
@@ -102,8 +108,8 @@ const IssueForm = () => {
           </Button>
           <Button
             type="button"
-            onClick={handleCancelForm}
             className="secondary"
+            onClick={handleCancelForm}
           >
             Cancel
           </Button>
