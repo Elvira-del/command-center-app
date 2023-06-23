@@ -8,7 +8,15 @@ export const Input = styled.input`
   font-family: ${({ theme }) => theme.fonts.fontFam};
   color: ${({ theme }) => theme.colors.lightFont};
 
-  &::placeholder {
+  &::placeholder,
+  ::-webkit-datetime-edit {
     color: rgb(242 242 242 / 50%);
+  }
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    &::placeholder,
+    ::-webkit-datetime-edit {
+      font-size: 12px;
+    }
   }
 `;

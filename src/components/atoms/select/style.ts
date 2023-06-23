@@ -10,4 +10,10 @@ export const Select = styled.select`
   & {
     color: ${({ theme }) => theme.colors.lightFont};
   }
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    & {
+      font-size: 12px;
+    }
+  }
 `;

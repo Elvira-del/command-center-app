@@ -29,10 +29,18 @@ export const IssueForm = styled.form`
 
 export const IssueInput = styled(Input)`
   width: 70%;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 65%;
+  }
 `;
 
 export const IssueSelect = styled(Select)`
   width: 70%;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 65%;
+  }
 `;
 
 export const ButtonFormWrapper = styled.div`

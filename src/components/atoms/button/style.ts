@@ -31,4 +31,8 @@ export const Button = styled.button<ButtonProps>`
   font-family: ${({ theme }) => theme.fonts.fontFam};
   font-weight: ${({ theme }) => theme.fonts.semiBold};
   color: ${({ theme }) => theme.colors.lightFont};
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 12px;
+  }
 `;
