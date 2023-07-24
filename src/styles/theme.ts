@@ -4,12 +4,14 @@ export const theme: DefaultTheme = {
   borderRadius: "10px",
 
   colors: {
+    blue: "#5d80ba",
+
     primary: "#5d80ba",
     secondary: "#ba7a70",
     success: "#2c6e50",
 
-    lightFont: "#f2f2f2",
-    darkFont: "#1d1d1d",
+    white: "#f2f2f2",
+    black: "#1d1d1d",
 
     bgElem: "#555555",
     bgFilter: "rgb(93 93 93 / 70%)",

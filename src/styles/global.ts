@@ -14,7 +14,7 @@ export default createGlobalStyle`
     scroll-behavior: smooth;    
     font-family: ${({ theme }) => theme.fonts.fontFam};
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.lightFont};        
+    color: ${({ theme }) => theme.colors.white};        
   }
 
   ul,

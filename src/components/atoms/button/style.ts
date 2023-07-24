@@ -30,7 +30,7 @@ export const Button = styled.button<ButtonProps>`
   }};
   font-family: ${({ theme }) => theme.fonts.fontFam};
   font-weight: ${({ theme }) => theme.fonts.semiBold};
-  color: ${({ theme }) => theme.colors.lightFont};
+  color: ${({ theme }) => theme.colors.white};
 
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 12px;

@@ -6,10 +6,9 @@ export const Input = styled.input`
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.colors.bgFilter};
   font-family: ${({ theme }) => theme.fonts.fontFam};
-  color: ${({ theme }) => theme.colors.lightFont};
+  color: ${({ theme }) => theme.colors.white};
 
-  &::placeholder,
-  ::-webkit-datetime-edit {
+  &::placeholder {
     color: rgb(242 242 242 / 50%);
   }
 

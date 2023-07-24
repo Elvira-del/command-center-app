@@ -8,7 +8,7 @@ export const Select = styled.select`
   font-family: ${({ theme }) => theme.fonts.fontFam};
 
   & {
-    color: ${({ theme }) => theme.colors.lightFont};
+    color: ${({ theme }) => theme.colors.white};
   }
 
   @media (${({ theme }) => theme.breakpoints.mobile}) {

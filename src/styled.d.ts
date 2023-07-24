@@ -5,12 +5,14 @@ declare module "styled-components" {
     borderRadius: string;
 
     colors: {
+      blue: string;
+
       primary: string;
       secondary: string;
       success: string;
 
-      lightFont: string;
-      darkFont: string;
+      white: string;
+      black: string;
 
       bgElem: string;
       bgFilter: string;
