@@ -16,7 +16,7 @@ type IssuesContextType = {
 
 export const IssueContext = createContext<IssuesContextType>({
   issues: [],
-  setIssues: () => {},
+  setIssues: () => void {},
 });
 
 function App() {

@@ -19,7 +19,7 @@ type ModalContextType = {
 
 export const ModalContext = createContext<ModalContextType>({
   isShow: false,
-  setIsShow: () => {},
+  setIsShow: () => void {},
 });
 
 const TaskDisplay = ({ tasks }: TaskDisplayType) => {
@@ -30,7 +30,7 @@ const TaskDisplay = ({ tasks }: TaskDisplayType) => {
       <>
         <S.TasksWrapper>
           <GroupPanel />
-          {Boolean(tasks.length) ? (
+          {tasks.length ? (
             <TasksList tasks={tasks} />
           ) : (
             <Title tag={"h2"}>No issues found</Title>
