@@ -1,10 +1,17 @@
-import { useContext, useMemo, useState } from "react";
-import { FiltersListType, Issue } from "data";
-import { IssueContext } from "App";
+import { useMemo, useState } from "react";
+import { FiltersListType, InitialFiltersList, Issue } from "data";
+import FilterPanel from "components/molecules/FilterPanel";
 
-export default function useFilterTasks(filters: FiltersListType): Issue[] {
-  const { issues } = useContext(IssueContext);
+export default function useFilterTasks(
+  issues: Issue[],
+  outerFilters?: FiltersListType
+): { filteredIssues: Issue[]; filterPanel: JSX.Element } {
   const [filteredIssues, setFilteredIssues] = useState(issues);
+  const [filters, setFilters] = useState(outerFilters || InitialFiltersList);
+
+  const filterPanel = (
+    <FilterPanel filters={filters} onFilter={(params) => setFilters(params)} />
+  );
 
   useMemo(() => {
     let filtered: Issue[] = [...issues];
@@ -32,5 +39,8 @@ export default function useFilterTasks(filters: FiltersListType): Issue[] {
     setFilteredIssues(filtered);
   }, [issues, filters]);
 
-  return filteredIssues;
+  return {
+    filteredIssues,
+    filterPanel,
+  };
 }
