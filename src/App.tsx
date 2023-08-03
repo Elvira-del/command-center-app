@@ -21,7 +21,7 @@ export const IssueContext = createContext<IssuesContextType>({
 
 function App() {
   const [issues, setIssues] = useState<Issue[]>(
-    getLocalStorage("localIssues") ?? []
+    getLocalStorage("localIssues") || []
   );
 
   useEffect(() => {
