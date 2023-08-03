@@ -5,36 +5,59 @@ import {
   useContext,
   useState,
 } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { InitialIssue, Issue, IssueStatusDict } from "data";
-import { IssueContext } from "App";
-import { ModalContext } from "components/organisms/TaskDisplay/TaskDisplay";
 import Button from "components/atoms/button";
 import Label from "components/atoms/label";
+import { ModalContext } from "components/organisms/TaskDisplay/TaskDisplay";
 import * as S from "./style";
 
-const IssueForm = () => {
-  const { issues, setIssues } = useContext(IssueContext);
+type IssueFormType = {
+  issue: Issue;
+  isEditing: boolean;
+  onSwitchEdit: () => void;
+  onAddIssue: (issue: Issue) => void;
+  onEditIssue: (issue: Issue) => void;
+};
+
+const IssueForm = ({
+  issue,
+  isEditing,
+  onSwitchEdit,
+  onAddIssue,
+  onEditIssue,
+}: IssueFormType) => {
   const { setIsShow } = useContext(ModalContext);
 
-  const [issue, setIssue] = useState<Issue>(InitialIssue);
+  const [newIssue, setNewIssue] = useState<Issue>(InitialIssue);
+  const [editIssue, setEditIssue] = useState<Issue>(issue);
 
   const handleChangeIssue = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setIssue({ ...issue, id: uuidv4(), [e.target.name]: e.target.value });
+    if (isEditing) {
+      setEditIssue({ ...editIssue, [e.target.name]: e.target.value });
+    } else {
+      setNewIssue({ ...newIssue, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmitIssue = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIssues([...issues, issue]);
+    if (isEditing) {
+      onEditIssue(editIssue);
+    } else {
+      onAddIssue(newIssue);
+    }
+
     setIsShow(false);
-    setIssue(InitialIssue);
+    onSwitchEdit();
+    setNewIssue(InitialIssue);
   };
 
   const handleCancelForm = () => {
     setIsShow(false);
-    setIssue(InitialIssue);
+    onSwitchEdit();
+    setNewIssue(InitialIssue);
   };
 
   const handleStopPropagation = (e: MouseEvent<HTMLDivElement>) => {
@@ -50,7 +73,7 @@ const IssueForm = () => {
           Location:
           <S.IssueInput
             type="text"
-            value={issue.location}
+            value={isEditing ? editIssue.location : newIssue.location}
             onChange={handleChangeIssue}
             name="location"
             id="location"
@@ -63,7 +86,7 @@ const IssueForm = () => {
           Title:
           <S.IssueInput
             type="text"
-            value={issue.title}
+            value={isEditing ? editIssue.title : newIssue.title}
             onChange={handleChangeIssue}
             name="title"
             id="title"
@@ -76,7 +99,7 @@ const IssueForm = () => {
           Start date:
           <S.IssueInput
             type="date"
-            value={issue.startDate}
+            value={isEditing ? editIssue.startDate : newIssue.startDate}
             onChange={handleChangeIssue}
             name="startDate"
             id="date"
@@ -89,7 +112,7 @@ const IssueForm = () => {
           <S.IssueSelect
             id="status"
             name="status"
-            value={issue.status}
+            value={isEditing ? editIssue.status : newIssue.status}
             onChange={handleChangeIssue}
             required
           >
@@ -104,7 +127,7 @@ const IssueForm = () => {
 
         <S.ButtonFormWrapper>
           <Button type="submit" className="success">
-            Submit
+            {isEditing ? "Save" : "Submit"}
           </Button>
           <Button
             type="button"

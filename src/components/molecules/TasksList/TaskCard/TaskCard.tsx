@@ -3,11 +3,12 @@ import * as S from "./style";
 
 type TaskCardType = {
   task: Issue;
+  onEditIssue: (issue: Issue) => void;
 };
 
-const TaskCard = ({ task }: TaskCardType) => {
+const TaskCard = ({ task, onEditIssue }: TaskCardType) => {
   return (
-    <S.TaskCard>
+    <S.TaskCard onClick={() => onEditIssue(task)}>
       <S.TaskContent>{task.location}</S.TaskContent>
       <S.TaskContent>{task.title}</S.TaskContent>
       <S.TaskContent>{task.startDate}</S.TaskContent>

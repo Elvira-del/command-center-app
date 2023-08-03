@@ -1,11 +1,21 @@
-import { Dispatch, SetStateAction, createContext, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { createPortal } from "react-dom";
-import { Issue } from "data";
+import { InitialIssue, Issue } from "data";
+import { IssueContext } from "App";
+import { issuesReducer } from "utils/issuesReducer";
+import Title from "components/atoms/title";
+import Modal from "components/atoms/modal";
 import GroupPanel from "components/molecules/GroupPanel";
 import TasksList from "components/molecules/TasksList";
 import IssueForm from "components/molecules/IssueForm";
-import Title from "components/atoms/title";
-import Modal from "components/atoms/modal";
 import * as S from "./style";
 
 type TaskDisplayType = {
@@ -23,7 +33,38 @@ export const ModalContext = createContext<ModalContextType>({
 });
 
 const TaskDisplay = ({ tasks }: TaskDisplayType) => {
+  const { issues, setIssues } = useContext(IssueContext);
+  const [currentIssues, dispatch] = useReducer(issuesReducer, issues);
+
+  const [issue, setIssue] = useState(InitialIssue);
+  const [isEditing, setIsEditing] = useState(false);
   const [isShow, setIsShow] = useState(false);
+
+  useEffect(() => {
+    setIssues(currentIssues);
+  }, [currentIssues]);
+
+  const handleAddIssue = (issue: Issue) => {
+    dispatch({
+      type: "add_incident",
+      payload: issue,
+    });
+  };
+
+  const handleEditIssue = (issue: Issue) => {
+    dispatch({
+      type: "edit_incident",
+      payload: issue,
+    });
+
+    setIssue(issue);
+    setIsEditing(true);
+    setIsShow(true);
+  };
+
+  const handleSwitchEditingIssue = () => {
+    setIsEditing(false);
+  };
 
   return (
     <ModalContext.Provider value={{ isShow, setIsShow }}>
@@ -31,7 +72,7 @@ const TaskDisplay = ({ tasks }: TaskDisplayType) => {
         <S.TasksWrapper>
           <GroupPanel />
           {tasks.length ? (
-            <TasksList tasks={tasks} />
+            <TasksList tasks={tasks} onEditIssue={handleEditIssue} />
           ) : (
             <Title tag={"h2"}>No issues found</Title>
           )}
@@ -40,8 +81,14 @@ const TaskDisplay = ({ tasks }: TaskDisplayType) => {
 
       {isShow &&
         createPortal(
-          <Modal>
-            <IssueForm />
+          <Modal onSwitchEdit={handleSwitchEditingIssue}>
+            <IssueForm
+              issue={issue}
+              isEditing={isEditing}
+              onSwitchEdit={handleSwitchEditingIssue}
+              onAddIssue={handleAddIssue}
+              onEditIssue={handleEditIssue}
+            />
           </Modal>,
           document.body
         )}
